@@ -5,7 +5,7 @@ title: "Proof of Concept : OpenStack Kolla avec Ansible et Docker"
 
 OpenStack est un assemblage complexe de plusieurs projets. Il est difficile de maîtriser tous ses modules, de les maintenir en condition opérationnelle, et d'intégrer les nouvelles fonctionnalités arrivant tous les six mois.
 
-Il  est vital que l'nfrastructure devienne aussi agile que les applications qu'elle héberge. OpenStack doit rentrer dans le modèle micro-services et DevOps.
+Il  est vital que l'infrastructure devienne aussi agile que les applications qu'elle héberge. OpenStack doit rentrer dans le modèle micro-services et DevOps.
 Tout cela est possible avec Kolla.
 
 Kolla est le projet qui simplifie le déploiement et la gestion d'OpenStack.
