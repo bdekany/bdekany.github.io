@@ -48,7 +48,9 @@ Pour éviter cela et empecher l'attaquant de modifier les fichiers (upload d'un 
 
 Cette isolation des droits se fait via l'option _--usens-remap_ au lancement du daemon docker.
 
-Sur la VM, il existe déjà un utilisateur et un groupe _whale_. les deux fichiers /etc/subuid et /etc/subguid sont déjà renseignés.
+Sur la VM, il existe déjà un utilisateur et un groupe _whale_. les deux fichiers /etc/subuid et /etc/subguid sont déjà renseignés avec le compte à utiliser et des plages d'UID/GID inutilisés.
+
+    whale:231072:65536
 
 Il suffit de modifier le fichier _/etc/default/docker_ et relancer docker. Pour Red Hat et SUSE le bon fichier est _/etc/sysconfig/docker_.
 
@@ -58,7 +60,7 @@ Il suffit de modifier le fichier _/etc/default/docker_ et relancer docker. Pour 
 
 Deuxième problème, tout utilisateur ayant accès au socket docker (UNIX ou HTTP) peut lancer n'importe quelle commande. Il n'y a aucun système d'authentification.
 
-Il est donc important de forcer l'utilisation de certificats via TLS pour authentifier les clients docker. Surtout si vous avez une deuxième machine dédiée au monitoring, comme [portainer](https://portainer.io/), qui a besoin de récuper les statistiques docker via l'API par le réseau.
+Il est donc important de forcer l'utilisation de certificats via TLS pour authentifier les clients docker. Surtout si vous avez une deuxième machine dédiée au monitoring, comme [portainer](https://portainer.io/), qui a besoin de récupérer les statistiques docker via l'API par le réseau.
 
 Le script ci-dessous génère une autorité de certification, un certificat client pour la connexion et reconfigure le daemon docker.
 
